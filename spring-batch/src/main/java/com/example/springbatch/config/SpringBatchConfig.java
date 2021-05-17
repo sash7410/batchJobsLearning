@@ -46,10 +46,15 @@ public class SpringBatchConfig {
     @Bean//check Resource
     public FlatFileItemReader<User> itemReader(){
             FlatFileItemReader<User> flatFileItemReader=new FlatFileItemReader<>();
-            flatFileItemReader.setResource(new FileSystemResource("src/main/resources/users.csv"));
+        System.out.println("config 1");
+            flatFileItemReader.setResource(new FileSystemResource
+                    ("E:/coding1/java codes prac/batchJobsLearning/spring-batch/src/main/resources/users.csv"));
+        System.out.println("config 2"+flatFileItemReader);
             flatFileItemReader.setName("CSV-Reader");
+        System.out.println("config 3");
             flatFileItemReader.setLinesToSkip(1);
             flatFileItemReader.setLineMapper(lineMapper());
+        System.out.println("config 4");
             return flatFileItemReader;
     }
     @Bean
